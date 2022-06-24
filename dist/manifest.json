@@ -1,0 +1,23 @@
+{
+  "name": "Element Emotes",
+  "description": "A browser extension for custom emote support in Element",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "permissions": [
+    "storage"
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://app.element.io/*"],
+      "js": ["app.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "icons": {
+    "128": "icon128.png"
+  }
+}

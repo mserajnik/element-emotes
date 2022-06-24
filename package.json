@@ -1,0 +1,40 @@
+{
+  "name": "element-emotes",
+  "version": "1.0.0",
+  "description": "A browser extension for custom emote support in Element",
+  "author": "Michael Serajnik <m@mser.at>",
+  "homepage": "https://github.com/mserajnik/element-emotes#readme",
+  "license": "AGPL-3.0-or-later",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mserajnik/element-emotes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mserajnik/element-emotes/issues"
+  },
+  "scripts": {
+    "postinstall": "patch-package",
+    "test": "eslint .",
+    "watch": "npx mix watch",
+    "build": "npx mix --production"
+  },
+  "engines": {
+    "node": ">=16.0.0 <19.0.0"
+  },
+  "dependencies": {
+    "@textcomplete/contenteditable": "^0.1.12",
+    "@textcomplete/core": "^0.1.12",
+    "emojibase-regex": "^6.0.1",
+    "fuse.js": "^6.6.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.18.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.3",
+    "eslint-plugin-promise": "^6.0.0",
+    "laravel-mix": "^6.0.49",
+    "patch-package": "^6.4.7"
+  }
+}

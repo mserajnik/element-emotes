@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Emotes Options</title>
+  </head>
+  <body>
+    <div class="options-block">
+      <strong>Note:</strong> In order to work, this extension requires an application to serve emotes according to <a href="https://github.com/mserajnik/emote-server#api" target="_blank" rel="noopener">this API specification</a>.
+    </div>
+
+    <div class="options-block">
+      <strong>Saving these options requires refreshing Element.</strong>
+    </div>
+
+    <div class="options-block">
+      <label>
+        Emote Server – Emotes URL<br>
+        <input type="text" id="emotes-url" placeholder="https://emotes.foo.bar/emotes/">
+      </label>
+      <br>
+      <small>This URL has to point to the <a href="https://github.com/mserajnik/emote-server#listing-emotes" target="_blank" rel="noopener"><code>/emotes</code></a> path of the emote server.</small>
+    </div>
+
+    <div class="options-block">
+      <label>
+        Emote Server – Access Key<br>
+        <input type="text" id="access-key">
+      </label>
+      <br>
+      <small>This can be left blank if the emote server does not require an access key.</small>
+    </div>
+
+    <div class="options-block">
+      <label>
+        Default Emote Size<br>
+        <input type="text" id="default-emote-size" placeholder="2em">
+      </label>
+      <br>
+      <small>The default emote size when emotes are mixed with text.<br>Has to be a value compatible with the CSS property <code>font-size</code> (default: <code>2em</code>).</small>
+    </div>
+
+    <div class="options-block">
+      <label>
+        Large Emote Size<br>
+        <input type="text" id="large-emote-size" placeholder="4em">
+      </label>
+      <br>
+      <small>The emote size for standalone emotes (without text in the same message).<br>Has to be a value compatible with the CSS property <code>font-size</code> (default: <code>4em</code>).</small>
+    </div>
+
+    <div class="options-block">
+      <div id="status"></div>
+    </div>
+
+    <div class="options-block"></div>
+      <button id="save">Save</button>
+    </div>
+
+    <div class="options-block text-center">
+      <small>
+        This extension is <a href="https://www.gnu.org/philosophy/free-sw.html" target="_blank" rel="noopener">free software</a> and licensed under <a href="https://spdx.org/licenses/AGPL-3.0-or-later.html" target="_blank" rel="noopener">AGPL-3.0-or-later</a>.<br>
+        You can find its source code <a href="https://github.com/mserajnik/element-emotes/" target="_blank" rel="noopener">here</a>.
+      </small>
+    </div>
+
+    <script src="options.js"></script>
+    <style>
+      .options-block {
+        margin-top: 10px;
+      }
+
+      .options-block:first-child {
+        margin-top: 0;
+      }
+
+      label {
+        font-weight: 700;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+    </style>
+  </body>
+</html>
