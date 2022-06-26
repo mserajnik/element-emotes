@@ -1,0 +1,19 @@
+diff --git a/node_modules/@textcomplete/contenteditable/dist/ContenteditableEditor.js b/node_modules/@textcomplete/contenteditable/dist/ContenteditableEditor.js
+index 43630f5..802034d 100644
+--- a/node_modules/@textcomplete/contenteditable/dist/ContenteditableEditor.js
++++ b/node_modules/@textcomplete/contenteditable/dist/ContenteditableEditor.js
+@@ -8,6 +8,14 @@ class ContenteditableEditor extends core_1.Editor {
+         super();
+         this.el = el;
+         this.onInput = () => {
++            // Element (or rather matrix-react-sdk, to be precise) seems to
++            // somehow create a new text node for each ` :` inserted into a
++            // message input; this causes textcomplete to only match on the
++            // first node, breaking both the suggestions and the insertion of
++            // the replacement text.
++            // Using `Node.normalize()` on the input merges those text nodes
++            // into a single one, thus fixing the issue.
++            this.el.normalize()
+             this.emitChangeEvent();
+         };
+         this.onKeydown = (e) => {
