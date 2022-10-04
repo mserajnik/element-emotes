@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Added
+
++ Frozen emote support
+
 ## 1.0.0 - 2022-06-27
 
 ### Added

@@ -20,7 +20,9 @@ import EMOJIBASE_REGEX from 'emojibase-regex'
 
 import store from '../../store'
 
-const contentWithoutEmotes = content => {
+let accessKey, useFrozenEmotes
+
+const getContentWithoutEmotes = content => {
   for (const emote of store.get('emotes')) {
     content = content.split(`:${emote.name}:`).join('')
   }
@@ -29,7 +31,7 @@ const contentWithoutEmotes = content => {
 }
 
 const hasEmotesOnly = content => {
-  content = contentWithoutEmotes(
+  content = getContentWithoutEmotes(
     content
       .replace(/\s/g, '') // Whitespace
       .replace(/[\u200D\u2003]/g, '') // Zero-width joiner Unicode characters
@@ -37,6 +39,29 @@ const hasEmotesOnly = content => {
   )
 
   return content.trim() === ''
+}
+
+const getFrozenEmoteUrl = emoteUrl => {
+  return emoteUrl.match(/^.+\/emotes\/.+\.(gif|apng)(\?.+)?$/)
+    ? emoteUrl.split('/emotes/').join('/frozen-emotes/')
+    : null
+}
+
+const toggleFrozenEmotes = (freeze = false) => {
+  const emotes = document.querySelectorAll('[data-frozen-emote-url]')
+
+  if (!emotes.length) {
+    return
+  }
+
+  for (const emote of emotes) {
+    if (freeze) {
+      emote.src = emote.dataset.frozenEmoteUrl
+      continue
+    }
+
+    emote.src = emote.dataset.emoteUrl
+  }
 }
 
 const replaceEmotes = (messageNode, force = false) => {
@@ -57,13 +82,29 @@ const replaceEmotes = (messageNode, force = false) => {
     : `font-size:1.4rem;max-height:${store.get('defaultEmoteSize')}`
 
   for (const emote of store.get('emotes')) {
+    const frozenEmoteUrl = getFrozenEmoteUrl(emote.url)
+
     content = content
       .split(`:${emote.name}:`)
       .join(
         `<img
-          style="${style}"
-          src="${emote.url}?accessKey=${store.get('accessKey')}"
-          alt="${emote.name}"
+          style="${style}"` +
+          (
+            useFrozenEmotes && frozenEmoteUrl
+              ? (
+                  document.hasFocus()
+                    ? `src="${emote.url}?accessKey=${accessKey}"`
+                    : `src="${frozenEmoteUrl}?accessKey=${accessKey}"`
+                )
+              : `src="${emote.url}?accessKey=${accessKey}"`
+          ) +
+          `data-emote-url="${emote.url}?accessKey=${accessKey}"` +
+          (
+            useFrozenEmotes && frozenEmoteUrl
+              ? `data-frozen-emote-url="${frozenEmoteUrl}?accessKey=${accessKey}"`
+              : ''
+          ) +
+          `alt="${emote.name}"
           title="${emote.name}">`
       )
   }
@@ -91,6 +132,9 @@ const handlePotentialMessageNode = node => {
 
 export default {
   initialize: () => {
+    accessKey = store.get('accessKey')
+    useFrozenEmotes = store.get('useFrozenEmotes')
+
     new MutationObserver(mutations => {
       for (const mutation of mutations) {
         for (const node of mutation.addedNodes) {
@@ -101,5 +145,19 @@ export default {
       childList: true,
       subtree: true
     })
+
+    if (useFrozenEmotes) {
+      // The windows needs to be focused at least once for the `focus` and
+      // `blur` events to work
+      window.focus()
+
+      window.addEventListener('focus', () => {
+        toggleFrozenEmotes(false)
+      })
+
+      window.addEventListener('blur', () => {
+        toggleFrozenEmotes(true)
+      })
+    }
   }
 }

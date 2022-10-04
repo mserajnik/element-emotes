@@ -25,7 +25,6 @@ extension might or might not work in Firefox.
 + [Develop](#develop)
   + [Installing dependencies](#installing-dependencies)
   + [Building](#building)
-+ [Planned future improvements](#planned-future-improvements)
 + [Maintainer](#maintainer)
 + [Contribute](#contribute)
 + [License](#license)
@@ -78,6 +77,7 @@ options are available:
 | Emote Server – Access Key | This can be left blank if the emote server does not require an access key.                                                               |               |
 | Default Emote Size        | The default emote size when emotes are mixed with text. Has to be a value compatible with the CSS property `font-size`.                  | `2em`         |
 | Large Emote Size          | The emote size for standalone emotes (without text in the same message). Has to be a value compatible with the CSS property `font-size`. | `4em`         |
+| Use Frozen Emotes         | If enabled, animated emotes (GIF, APNG) will be frozen when Element is not focused.                                                      |               |
 
 ### Usage in Element
 
@@ -120,10 +120,6 @@ Or, to make a production build:
 ```zsh
 user@local:element-emotes$ npm run build
 ```
-
-## Planned future improvements
-
-- Implement [frozen emote][frozen-emotes] support
 
 ## Maintainer
 
