@@ -25,6 +25,7 @@ const state = {
   accessKey: null,
   defaultEmoteSize: null,
   largeEmoteSize: null,
+  useFrozenEmotes: null,
   emotes: []
 }
 

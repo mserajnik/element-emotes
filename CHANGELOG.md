@@ -8,10 +8,17 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [1.1.0] - 2022-11-01
+
+### Added
+
++ Frozen emote support
+
 ## 1.0.0 - 2022-06-27
 
 ### Added
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.0.0...develop
+[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.1.0...develop
+[1.1.0]: https://github.com/mserajnik/element-emotes/compare/1.0.0...1.1.0

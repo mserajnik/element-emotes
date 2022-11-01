@@ -21,13 +21,15 @@ const saveOptions = () => {
   const accessKey = document.getElementById('access-key').value
   const defaultEmoteSize = document.getElementById('default-emote-size').value
   const largeEmoteSize = document.getElementById('large-emote-size').value
+  const useFrozenEmotes = document.getElementById('use-frozen-emotes').checked
 
   // eslint-disable-next-line no-undef
   chrome.storage.sync.set({
     emotesUrl,
     accessKey,
     defaultEmoteSize,
-    largeEmoteSize
+    largeEmoteSize,
+    useFrozenEmotes
   }, () => {
     const status = document.getElementById('status')
     status.textContent = 'Options saved.'
@@ -44,12 +46,14 @@ const restoreOptions = () => {
     emotesUrl: '',
     accessKey: '',
     defaultEmoteSize: '2em',
-    largeEmoteSize: '4em'
+    largeEmoteSize: '4em',
+    useFrozenEmotes: false
   }, items => {
     document.getElementById('emotes-url').value = items.emotesUrl
     document.getElementById('access-key').value = items.accessKey
     document.getElementById('default-emote-size').value = items.defaultEmoteSize
     document.getElementById('large-emote-size').value = items.largeEmoteSize
+    document.getElementById('use-frozen-emotes').checked = items.useFrozenEmotes
   })
 }
 
