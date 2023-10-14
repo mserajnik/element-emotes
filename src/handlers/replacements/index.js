@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import EMOJIBASE_REGEX from 'emojibase-regex'
+import EMOJI_REGEX from 'emojibase-regex'
 
 import store from '../../store'
 
@@ -35,7 +35,7 @@ const hasEmotesOnly = content => {
     content
       .replace(/\s/g, '') // Whitespace
       .replace(/[\u200D\u2003]/g, '') // Zero-width joiner Unicode characters
-      .replace(new RegExp(EMOJIBASE_REGEX.source, 'gi'), '') // Emoji
+      .replace(new RegExp(EMOJI_REGEX.source, 'gi'), '') // Emoji
   )
 
   return content.trim() === ''
