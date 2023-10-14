@@ -8,6 +8,13 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Changed
+
++ The emotes no longer have their own `font-size` property that overrides
+  whatever the font size in the _Appearance_ settings of Element is set to.
+  This also means you might have to re-adjust the emote size in the extension
+  options.
+
 ## [1.1.0] - 2022-11-01
 
 ### Added

@@ -78,8 +78,8 @@ const replaceEmotes = (messageNode, force = false) => {
   let content = messageBodyNode.innerHTML
 
   const style = hasEmotesOnly(messageBodyNode.textContent)
-    ? `font-size:1.4rem;max-height:${store.get('largeEmoteSize')};vertical-align:bottom`
-    : `font-size:1.4rem;max-height:${store.get('defaultEmoteSize')}`
+    ? `max-height:${store.get('largeEmoteSize')};vertical-align:bottom`
+    : `max-height:${store.get('defaultEmoteSize')}`
 
   for (const emote of store.get('emotes')) {
     const frozenEmoteUrl = getFrozenEmoteUrl(emote.url)
