@@ -1,5 +1,5 @@
 diff --git a/node_modules/@textcomplete/contenteditable/dist/ContenteditableEditor.js b/node_modules/@textcomplete/contenteditable/dist/ContenteditableEditor.js
-index 43630f5..802034d 100644
+index 43630f5..1792296 100644
 --- a/node_modules/@textcomplete/contenteditable/dist/ContenteditableEditor.js
 +++ b/node_modules/@textcomplete/contenteditable/dist/ContenteditableEditor.js
 @@ -8,6 +8,14 @@ class ContenteditableEditor extends core_1.Editor {
@@ -13,7 +13,31 @@ index 43630f5..802034d 100644
 +            // the replacement text.
 +            // Using `Node.normalize()` on the input merges those text nodes
 +            // into a single one, thus fixing the issue.
-+            this.el.normalize()
++            this.el.normalize();
              this.emitChangeEvent();
          };
          this.onKeydown = (e) => {
+@@ -55,6 +63,23 @@ class ContenteditableEditor extends core_1.Editor {
+                     beforeCursor = beforeCursor.replace(before, "");
+                 const range = this.getRange();
+                 range.selectNode(range.startContainer);
++
++                // The new RTE editor doesn't seem to let us delete its
++                // contents in a more programmatical manner for some reason
++                // (probably related to React data binding), the only way that
++                // seems to work is to issue manual `delete` and
++                // `forwardDelete` commands. This is quite slow and depends on
++                // the length of the content, but it will have to do for now.
++                if (this.el.dataset.requiresManualDeletions) {
++                  for (let i = 0; i < before.length; i++) {
++                    this.el.ownerDocument.execCommand('delete', false, null);
++                  }
++
++                  for (let i = 0; i < after.length; i++) {
++                    this.el.ownerDocument.execCommand('forwardDelete', false, null);
++                  }
++                }
++
+                 this.el.ownerDocument.execCommand("insertText", false, beforeCursor + replace[1]);
+                 range.detach();
+                 const newRange = this.getRange();

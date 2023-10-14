@@ -8,6 +8,12 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Added
+
++ Experimental support for the rich text editor (Labs feature). Inserting the
+  autocomplete replacements is quite slow at the moment and depends on the
+  length of the content due to the workaround required to make it functional.
+
 ### Changed
 
 + The emotes no longer have their own `font-size` property that overrides

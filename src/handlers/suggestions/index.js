@@ -63,12 +63,16 @@ const textcompleteOptions = {
   }
 }
 
-const handleEmoteSuggestions = async messageInputNode => {
+const handleEmoteSuggestions = async (messageInputNode, requiresManualDeletions = false) => {
   if (messageInputNode.dataset.handlingEmoteSuggestions) {
     return
   }
 
   messageInputNode.dataset.handlingEmoteSuggestions = true
+
+  if (requiresManualDeletions) {
+    messageInputNode.dataset.requiresManualDeletions = true
+  }
 
   const textcomplete = new Textcomplete(
     new ContenteditableEditor(messageInputNode),
@@ -90,9 +94,28 @@ const handleEmoteSuggestions = async messageInputNode => {
 }
 
 const handlePotentialMessageInputNode = node => {
-  if (node.classList && node.classList.contains('mx_BasicMessageComposer_input')) {
-    handleEmoteSuggestions(node)
+  if (node.nodeType !== Node.ELEMENT_NODE) {
     return
+  }
+
+  const messageInputNodes = [
+    {
+      class: 'mx_BasicMessageComposer_input',
+      requiresManualDeletions: false
+    },
+    {
+      class: 'mx_WysiwygComposer_Editor_content',
+      requiresManualDeletions: true
+    }
+  ]
+
+  if (node.classList) {
+    for (const messageInputNode of messageInputNodes) {
+      if (node.classList.contains(messageInputNode.class)) {
+        handleEmoteSuggestions(node, messageInputNode.requiresManualDeletions)
+        return
+      }
+    }
   }
 
   if (node.childNodes) {
