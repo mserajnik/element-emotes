@@ -23,7 +23,7 @@ import store from '../../store'
 const { Textcomplete } = require('@textcomplete/core')
 const { ContenteditableEditor } = require('@textcomplete/contenteditable')
 
-let fuse
+let fuse, textcompleteOptions
 
 const gatherCandidates = term => fuse.search(
   term.split(':').join('')
@@ -46,29 +46,16 @@ const textcompleteStrategy = {
   replace: emote => `:${emote.item.name}: `
 }
 
-const textcompleteOptions = {
-  dropdown: {
-    className: 'dropdown-menu textcomplete-dropdown mx_Autocomplete',
-    maxCount: 10,
-    placement: 'top',
-    header: () => '',
-    footer: () => '',
-    rotate: true,
-    style: { display: 'none', position: 'absolute', zIndex: '1000' },
-    parent: document.body,
-    item: {
-      className: 'textcomplete-item mx_Autocomplete_Completion_pill',
-      activeClassName: 'textcomplete-item active mx_Autocomplete_Completion_pill mx_Autocomplete_Completion selected'
-    }
-  }
-}
-
-const handleEmoteSuggestions = async messageInputNode => {
+const handleEmoteSuggestions = async (messageInputNode, requiresManualDeletions = false) => {
   if (messageInputNode.dataset.handlingEmoteSuggestions) {
     return
   }
 
   messageInputNode.dataset.handlingEmoteSuggestions = true
+
+  if (requiresManualDeletions) {
+    messageInputNode.dataset.requiresManualDeletions = true
+  }
 
   const textcomplete = new Textcomplete(
     new ContenteditableEditor(messageInputNode),
@@ -90,9 +77,28 @@ const handleEmoteSuggestions = async messageInputNode => {
 }
 
 const handlePotentialMessageInputNode = node => {
-  if (node.classList && node.classList.contains('mx_BasicMessageComposer_input')) {
-    handleEmoteSuggestions(node)
+  if (node.nodeType !== Node.ELEMENT_NODE) {
     return
+  }
+
+  const messageInputNodes = [
+    {
+      class: 'mx_BasicMessageComposer_input',
+      requiresManualDeletions: false
+    },
+    {
+      class: 'mx_WysiwygComposer_Editor_content',
+      requiresManualDeletions: true
+    }
+  ]
+
+  if (node.classList) {
+    for (const messageInputNode of messageInputNodes) {
+      if (node.classList.contains(messageInputNode.class)) {
+        handleEmoteSuggestions(node, messageInputNode.requiresManualDeletions)
+        return
+      }
+    }
   }
 
   if (node.childNodes) {
@@ -110,6 +116,23 @@ export default {
         keys: ['name']
       }
     )
+
+    textcompleteOptions = {
+      dropdown: {
+        className: 'dropdown-menu textcomplete-dropdown mx_Autocomplete',
+        maxCount: store.get('emoteSuggestionAmount'),
+        placement: 'top',
+        header: () => '',
+        footer: () => '',
+        rotate: true,
+        style: { display: 'none', position: 'absolute', zIndex: '1000' },
+        parent: document.body,
+        item: {
+          className: 'textcomplete-item mx_Autocomplete_Completion_pill',
+          activeClassName: 'textcomplete-item active mx_Autocomplete_Completion_pill mx_Autocomplete_Completion selected'
+        }
+      }
+    }
 
     new MutationObserver(mutations => {
       for (const mutation of mutations) {

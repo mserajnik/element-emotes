@@ -9,11 +9,9 @@ This is a browser extension that adds custom emote support to
 instead, it requires an application to serve them according to
 [this API specification][emote-server-api].
 
-__Note:__ This extension uses [Manifest V3][manifest-v3], which (as of June
-2022) is [not yet supported in Firefox][firefox-manifest-v3]. I also do not use
-Firefox and have no interest in officially supporting it once Manifest V3
-support is added. This README only refers to Chromium-based browsers and the
-extension might or might not work in Firefox.
+__Note:__ This extension uses [Manifest V3][manifest-v3] and might or might not
+work in Firefox or other browsers that are not based on Chromium. I have no
+interest in supporting these browsers.
 
 ## Table of contents
 
@@ -77,7 +75,8 @@ options are available:
 | Emote Server – Access Key | This can be left blank if the emote server does not require an access key.                                                               |               |
 | Default Emote Size        | The default emote size when emotes are mixed with text. Has to be a value compatible with the CSS property `font-size`.                  | `2em`         |
 | Large Emote Size          | The emote size for standalone emotes (without text in the same message). Has to be a value compatible with the CSS property `font-size`. | `4em`         |
-| Use Frozen Emotes         | If enabled, animated emotes (GIF, APNG) will be frozen when Element is not focused.                                                      |               |
+| Use Frozen Emotes         | If enabled, animated emotes (GIF, APNG) will be frozen when Element is not focused.                                                      | `false`       |
+| Emote Suggestion Amount   | The number of emote suggestions shown at the same time.                                                                                  | `10`          |
 
 ### Usage in Element
 
@@ -98,7 +97,7 @@ The production assets in [`dist`](dist) are not excluded from Git to make
 installing this extension easier for less tech-savvy people.
 
 To make your own builds, you need to install [Node.js][node-js] (tested with
-`>=18.0.0 <20.0.0`).
+`>=18.0.0 <21.0.0`).
 
 ### Installing dependencies
 
@@ -138,8 +137,6 @@ You are welcome to help out!
 [element]: https://element.io/
 [emote-server-api]: https://github.com/mserajnik/emote-server#api
 [emotes-path]: https://github.com/mserajnik/emote-server#listing-emotes
-[firefox-manifest-v3]: https://blog.mozilla.org/addons/2022/05/18/manifest-v3-in-firefox-recap-next-steps/
-[frozen-emotes]: https://github.com/mserajnik/emote-server#getting-frozen-emotes
 [issues]: https://github.com/mserajnik/element-emotes/issues
 [load-an-unpacked-extension]: https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked
 [maintainer]: https://github.com/mserajnik

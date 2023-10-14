@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import EMOJIBASE_REGEX from 'emojibase-regex'
+import EMOJI_REGEX from 'emojibase-regex'
 
 import store from '../../store'
 
@@ -35,7 +35,7 @@ const hasEmotesOnly = content => {
     content
       .replace(/\s/g, '') // Whitespace
       .replace(/[\u200D\u2003]/g, '') // Zero-width joiner Unicode characters
-      .replace(new RegExp(EMOJIBASE_REGEX.source, 'gi'), '') // Emoji
+      .replace(new RegExp(EMOJI_REGEX.source, 'gi'), '') // Emoji
   )
 
   return content.trim() === ''
@@ -78,8 +78,8 @@ const replaceEmotes = (messageNode, force = false) => {
   let content = messageBodyNode.innerHTML
 
   const style = hasEmotesOnly(messageBodyNode.textContent)
-    ? `font-size:1.4rem;max-height:${store.get('largeEmoteSize')};vertical-align:bottom`
-    : `font-size:1.4rem;max-height:${store.get('defaultEmoteSize')}`
+    ? `max-height:${store.get('largeEmoteSize')};vertical-align:bottom`
+    : `max-height:${store.get('defaultEmoteSize')}`
 
   for (const emote of store.get('emotes')) {
     const frozenEmoteUrl = getFrozenEmoteUrl(emote.url)
