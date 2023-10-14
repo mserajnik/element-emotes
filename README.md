@@ -75,7 +75,8 @@ options are available:
 | Emote Server – Access Key | This can be left blank if the emote server does not require an access key.                                                               |               |
 | Default Emote Size        | The default emote size when emotes are mixed with text. Has to be a value compatible with the CSS property `font-size`.                  | `2em`         |
 | Large Emote Size          | The emote size for standalone emotes (without text in the same message). Has to be a value compatible with the CSS property `font-size`. | `4em`         |
-| Use Frozen Emotes         | If enabled, animated emotes (GIF, APNG) will be frozen when Element is not focused.                                                      |               |
+| Use Frozen Emotes         | If enabled, animated emotes (GIF, APNG) will be frozen when Element is not focused.                                                      | `false`       |
+| Emote Suggestion Amount   | The number of emote suggestions shown at the same time.                                                                                  | `10`          |
 
 ### Usage in Element
 
@@ -96,7 +97,7 @@ The production assets in [`dist`](dist) are not excluded from Git to make
 installing this extension easier for less tech-savvy people.
 
 To make your own builds, you need to install [Node.js][node-js] (tested with
-`>=18.0.0 <20.0.0`).
+`>=18.0.0 <21.0.0`).
 
 ### Installing dependencies
 

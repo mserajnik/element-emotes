@@ -26,7 +26,8 @@ const state = {
   defaultEmoteSize: null,
   largeEmoteSize: null,
   useFrozenEmotes: null,
-  emotes: []
+  emoteSuggestionAmount: null,
+  emotes: [],
 }
 
 export default {

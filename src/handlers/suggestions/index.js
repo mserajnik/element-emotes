@@ -23,7 +23,7 @@ import store from '../../store'
 const { Textcomplete } = require('@textcomplete/core')
 const { ContenteditableEditor } = require('@textcomplete/contenteditable')
 
-let fuse
+let fuse, textcompleteOptions
 
 const gatherCandidates = term => fuse.search(
   term.split(':').join('')
@@ -44,23 +44,6 @@ const textcompleteStrategy = {
   template: emote =>
     `<img src="${emote.item.url}?accessKey=${store.get('accessKey')}">&nbsp;<small>${emote.item.name}</small>`,
   replace: emote => `:${emote.item.name}: `
-}
-
-const textcompleteOptions = {
-  dropdown: {
-    className: 'dropdown-menu textcomplete-dropdown mx_Autocomplete',
-    maxCount: 10,
-    placement: 'top',
-    header: () => '',
-    footer: () => '',
-    rotate: true,
-    style: { display: 'none', position: 'absolute', zIndex: '1000' },
-    parent: document.body,
-    item: {
-      className: 'textcomplete-item mx_Autocomplete_Completion_pill',
-      activeClassName: 'textcomplete-item active mx_Autocomplete_Completion_pill mx_Autocomplete_Completion selected'
-    }
-  }
 }
 
 const handleEmoteSuggestions = async (messageInputNode, requiresManualDeletions = false) => {
@@ -133,6 +116,23 @@ export default {
         keys: ['name']
       }
     )
+
+    textcompleteOptions = {
+      dropdown: {
+        className: 'dropdown-menu textcomplete-dropdown mx_Autocomplete',
+        maxCount: store.get('emoteSuggestionAmount'),
+        placement: 'top',
+        header: () => '',
+        footer: () => '',
+        rotate: true,
+        style: { display: 'none', position: 'absolute', zIndex: '1000' },
+        parent: document.body,
+        item: {
+          className: 'textcomplete-item mx_Autocomplete_Completion_pill',
+          activeClassName: 'textcomplete-item active mx_Autocomplete_Completion_pill mx_Autocomplete_Completion selected'
+        }
+      }
+    }
 
     new MutationObserver(mutations => {
       for (const mutation of mutations) {
