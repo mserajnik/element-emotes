@@ -8,6 +8,8 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [1.2.0] - 2023-10-14
+
 ### Added
 
 + Experimental support for the rich text editor (Labs feature). Inserting the
@@ -35,5 +37,6 @@ and this project adheres to
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.1.0...develop
+[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.2.0...develop
+[1.2.0]: https://github.com/mserajnik/element-emotes/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/mserajnik/element-emotes/compare/1.0.0...1.1.0
