@@ -8,6 +8,13 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [1.3.0] - 2024-04-09
+
+### Security
+
++ Maintenance release that replaces [Laravel Mix][laravel-mix] with
+  [Vite][vite] to have more modern tooling and to fix vulnerabilities
+
 ## [1.2.0] - 2023-10-14
 
 ### Added
@@ -37,6 +44,10 @@ and this project adheres to
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.2.0...develop
+[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.3.0...develop
+[1.3.0]: https://github.com/mserajnik/element-emotes/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/mserajnik/element-emotes/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/mserajnik/element-emotes/compare/1.0.0...1.1.0
+
+[laravel-mix]: https://github.com/laravel-mix/laravel-mix
+[vite]: https://vitejs.dev/
