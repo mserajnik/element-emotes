@@ -20,6 +20,8 @@ import store from './store'
 import replacementsHandler from './handlers/replacements'
 import suggestionsHandler from './handlers/suggestions'
 
+import './style.css'
+
 ;(async () => {
   try {
     await store.initialize()

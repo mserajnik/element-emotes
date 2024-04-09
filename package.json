@@ -16,8 +16,8 @@
   "scripts": {
     "postinstall": "patch-package",
     "test": "eslint .",
-    "watch": "npx mix watch",
-    "build": "npx mix --production"
+    "watch": "vite build --watch src",
+    "build": "vite build src"
   },
   "engines": {
     "node": ">=20.0.0 <22.0.0"
@@ -34,7 +34,8 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
-    "laravel-mix": "^6.0.49",
-    "patch-package": "^8.0.0"
+    "patch-package": "^8.0.0",
+    "vite": "^5.2.8",
+    "vite-plugin-commonjs": "^0.10.1"
   }
 }
