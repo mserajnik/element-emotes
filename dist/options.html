@@ -70,6 +70,33 @@
     </div>
 
     <div class="options-block">
+      <label>
+        Emote Fuzzy Matching Location<br>
+        <input type="number" id="emote-fuzzy-matching-location">
+      </label>
+      <br>
+      <small>The location factor used for the fuzzy matching relevance score of the emote names.<br>See <a href="https://www.fusejs.io/api/options.html#fuzzy-matching-options" target="_blank" rel="noopener">here</a> and <a href="https://www.fusejs.io/concepts/scoring-theory.html" target="_blank" rel="noopener">here</a> to learn how to adjust it (default: <code>0</code>).</small>
+    </div>
+
+    <div class="options-block">
+      <label>
+        Emote Fuzzy Matching Distance<br>
+        <input type="number" id="emote-fuzzy-matching-distance">
+      </label>
+      <br>
+      <small>The distance factor used for the fuzzy matching relevance score of the emote names.<br>See <a href="https://www.fusejs.io/api/options.html#fuzzy-matching-options" target="_blank" rel="noopener">here</a> and <a href="https://www.fusejs.io/concepts/scoring-theory.html" target="_blank" rel="noopener">here</a> to learn how to adjust it (default: <code>100</code>).</small>
+    </div>
+
+    <div class="options-block">
+      <label>
+        Emote Fuzzy Matching Threshold<br>
+        <input type="number" id="emote-fuzzy-matching-threshold" min="0" max="1" step="0.1" value="0.6">
+      </label>
+      <br>
+      <small>The threshold factor used for the fuzzy matching relevance score of the emote names.<br>See <a href="https://www.fusejs.io/api/options.html#fuzzy-matching-options" target="_blank" rel="noopener">here</a> and <a href="https://www.fusejs.io/concepts/scoring-theory.html" target="_blank" rel="noopener">here</a> to learn how to adjust it (default: <code>0.6</code>).</small>
+    </div>
+
+    <div class="options-block">
       <div id="status"></div>
     </div>
 

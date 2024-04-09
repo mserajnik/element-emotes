@@ -8,6 +8,11 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Added
+
++ Some fuzzy matching relevance score options are now exposed to be able to
+  fine-tune them when necessary
+
 ## [1.3.1] - 2024-04-09
 
 ### Fixed

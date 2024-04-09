@@ -111,9 +111,10 @@ export default {
     fuse = new Fuse(
       store.get('emotes'),
       {
-        // TODO: We can use this to highlight the matched characters
-        // includeMatches: true,
-        keys: ['name']
+        keys: ['name'],
+        location: store.get('emoteFuzzyMatchingLocation'),
+        distance: store.get('emoteFuzzyMatchingDistance'),
+        threshold: store.get('emoteFuzzyMatchingThreshold')
       }
     )
 

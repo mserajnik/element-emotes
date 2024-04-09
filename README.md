@@ -69,14 +69,17 @@ user@local:element-emotes$ git pull
 The extension is configured entirely via its options page. The following
 options are available:
 
-| Option                    | Description                                                                                                                              | Default value |
-|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| Emote Server – Emotes URL | This URL has to point to the [`/emotes`][emotes-path] path of the emote server.                                                          |               |
-| Emote Server – Access Key | This can be left blank if the emote server does not require an access key.                                                               |               |
-| Default Emote Size        | The default emote size when emotes are mixed with text. Has to be a value compatible with the CSS property `font-size`.                  | `2em`         |
-| Large Emote Size          | The emote size for standalone emotes (without text in the same message). Has to be a value compatible with the CSS property `font-size`. | `4em`         |
-| Use Frozen Emotes         | If enabled, animated emotes (GIF, APNG) will be frozen when Element is not focused.                                                      | `false`       |
-| Emote Suggestion Amount   | The number of emote suggestions shown at the same time.                                                                                  | `10`          |
+| Option                         | Description                                                                                                                                                                                  | Default value |
+|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| Emote Server – Emotes URL      | This URL has to point to the [`/emotes`][emotes-path] path of the emote server.                                                                                                              |               |
+| Emote Server – Access Key      | This can be left blank if the emote server does not require an access key.                                                                                                                   |               |
+| Default Emote Size             | The default emote size when emotes are mixed with text. Has to be a value compatible with the CSS property `font-size`.                                                                      | `2em`         |
+| Large Emote Size               | The emote size for standalone emotes (without text in the same message). Has to be a value compatible with the CSS property `font-size`.                                                     | `4em`         |
+| Use Frozen Emotes              | If enabled, animated emotes (GIF, APNG) will be frozen when Element is not focused.                                                                                                          | `false`       |
+| Emote Suggestion Amount        | The number of emote suggestions shown at the same time.                                                                                                                                      | `10`          |
+| Emote Fuzzy Matching Location  | The location factor used for the fuzzy matching relevance score of the emote names. See [here][fuzzy-matching-options] and [here][fuzzy-matching-scoring-theory] to learn how to adjust it.  | `0`           |
+| Emote Fuzzy Matching Distance  | The distance factor used for the fuzzy matching relevance score of the emote names. See [here][fuzzy-matching-options] and [here][fuzzy-matching-scoring-theory] to learn how to adjust it.  | `100`         |
+| Emote Fuzzy Matching Threshold | The threshold factor used for the fuzzy matching relevance score of the emote names. See [here][fuzzy-matching-options] and [here][fuzzy-matching-scoring-theory] to learn how to adjust it. | `0.6`         |
 
 ### Usage in Element
 
@@ -137,6 +140,8 @@ You are welcome to help out!
 [element]: https://element.io/
 [emote-server-api]: https://github.com/mserajnik/emote-server#api
 [emotes-path]: https://github.com/mserajnik/emote-server#listing-emotes
+[fuzzy-matching-options]: https://www.fusejs.io/api/options.html#fuzzy-matching-options
+[fuzzy-matching-scoring-theory]: https://www.fusejs.io/concepts/scoring-theory.html
 [issues]: https://github.com/mserajnik/element-emotes/issues
 [load-an-unpacked-extension]: https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked
 [maintainer]: https://github.com/mserajnik
