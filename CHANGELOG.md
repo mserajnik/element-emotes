@@ -8,6 +8,12 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [1.3.1] - 2024-04-09
+
+### Fixed
+
++ Fixed wrong asset name in extension manifest
+
 ## [1.3.0] - 2024-04-09
 
 ### Security
@@ -44,7 +50,8 @@ and this project adheres to
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.3.0...develop
+[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.3.1...develop
+[1.3.1]: https://github.com/mserajnik/element-emotes/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/mserajnik/element-emotes/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/mserajnik/element-emotes/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/mserajnik/element-emotes/compare/1.0.0...1.1.0
