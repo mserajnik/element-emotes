@@ -14,7 +14,7 @@
     {
       "matches": ["https://app.element.io/*"],
       "js": ["app.js"],
-      "css": ["style.css"]
+      "css": ["app.css"]
     }
   ],
   "icons": {
