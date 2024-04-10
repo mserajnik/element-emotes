@@ -27,6 +27,7 @@ const state = {
   largeEmoteSize: null,
   useFrozenEmotes: null,
   emoteSuggestionAmount: null,
+  useEmoteFuzzyMatching: null,
   emoteFuzzyMatchingLocation: null,
   emoteFuzzyMatchingDistance: null,
   emoteFuzzyMatchingThreshold: null,

@@ -25,9 +25,29 @@ const { ContenteditableEditor } = require('@textcomplete/contenteditable')
 
 let fuse, textcompleteOptions
 
-const gatherCandidates = term => fuse.search(
-  term.split(':').join('')
-)
+const gatherCandidates = term => {
+  let cleanedTerm = term.split(':').join('')
+
+  if (store.get('useEmoteFuzzyMatching')) {
+    return fuse.search(cleanedTerm)
+  }
+
+  // We don't already convert the term to lower case further above so we don't
+  // interfere with any potential scoring differentation Fuse.js might make
+  // based on casing when using the fuzzy matching instead
+  cleanedTerm = cleanedTerm.toLowerCase()
+
+  const emotes = store.get('emotes')
+  const candidates = []
+
+  for (const emote of emotes) {
+    if (emote.name.toLowerCase().includes(cleanedTerm)) {
+      candidates.push({ item: emote })
+    }
+  }
+
+  return candidates
+}
 
 const textcompleteStrategy = {
   id: 'emote',
@@ -108,15 +128,17 @@ const handlePotentialMessageInputNode = node => {
 
 export default {
   initialize: () => {
-    fuse = new Fuse(
-      store.get('emotes'),
-      {
-        keys: ['name'],
-        location: store.get('emoteFuzzyMatchingLocation'),
-        distance: store.get('emoteFuzzyMatchingDistance'),
-        threshold: store.get('emoteFuzzyMatchingThreshold')
-      }
-    )
+    if (store.get('useEmoteFuzzyMatching')) {
+      fuse = new Fuse(
+        store.get('emotes'),
+        {
+          keys: ['name'],
+          location: store.get('emoteFuzzyMatchingLocation'),
+          distance: store.get('emoteFuzzyMatchingDistance'),
+          threshold: store.get('emoteFuzzyMatchingThreshold')
+        }
+      )
+    }
 
     textcompleteOptions = {
       dropdown: {

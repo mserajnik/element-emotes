@@ -39,7 +39,7 @@
         <input type="text" id="default-emote-size" placeholder="2em">
       </label>
       <br>
-      <small>The default emote size when emotes are mixed with text.<br>Has to be a value compatible with the CSS property <code>font-size</code> (default: <code>2em</code>).</small>
+      <small>The default emote size when emotes are mixed with text.<br>Has to be a value compatible with the CSS property <code>font-size</code>.<br>(default: <code>2em</code>)</small>
     </div>
 
     <div class="options-block">
@@ -48,7 +48,7 @@
         <input type="text" id="large-emote-size" placeholder="4em">
       </label>
       <br>
-      <small>The emote size for standalone emotes (without text in the same message).<br>Has to be a value compatible with the CSS property <code>font-size</code> (default: <code>4em</code>).</small>
+      <small>The emote size for standalone emotes (without text in the same message).<br>Has to be a value compatible with the CSS property <code>font-size</code>.<br>(default: <code>4em</code>)</small>
     </div>
 
     <div class="options-block">
@@ -57,7 +57,7 @@
         <input type="checkbox" id="use-frozen-emotes" value="1">
       </label>
       <br>
-      <small>If enabled, animated emotes (GIF, APNG) will be frozen when Element is not focused.</small>
+      <small>If enabled, animated emotes (GIF, APNG) will be frozen when Element is not focused.<br>(default: <code>false</code>)</small>
     </div>
 
     <div class="options-block">
@@ -66,7 +66,16 @@
         <input type="number" id="emote-suggestion-amount">
       </label>
       <br>
-      <small>The number of emote suggestions shown at the same time (default: <code>10</code>).</small>
+      <small>The number of emote suggestions shown at the same time.<br>(default: <code>10</code>)</small>
+    </div>
+
+    <div class="options-block">
+      <label>
+        Use Emote Fuzzy Matching
+        <input type="checkbox" id="use-emote-fuzzy-matching" value="1">
+      </label>
+      <br>
+      <small>Whether to use fuzzy matching for emote suggestions or not.<br>When disabled, simple case-insensitive string matching will be used instead.<br>(default: <code>true</code>)</small>
     </div>
 
     <div class="options-block">
@@ -75,7 +84,7 @@
         <input type="number" id="emote-fuzzy-matching-location">
       </label>
       <br>
-      <small>The location factor used for the fuzzy matching relevance score of the emote names.<br>See <a href="https://www.fusejs.io/api/options.html#fuzzy-matching-options" target="_blank" rel="noopener">here</a> and <a href="https://www.fusejs.io/concepts/scoring-theory.html" target="_blank" rel="noopener">here</a> to learn how to adjust it (default: <code>0</code>).</small>
+      <small>The location factor used for the fuzzy matching relevance score of the emote names.<br>See <a href="https://www.fusejs.io/api/options.html#fuzzy-matching-options" target="_blank" rel="noopener">here</a> and <a href="https://www.fusejs.io/concepts/scoring-theory.html" target="_blank" rel="noopener">here</a> to learn how to adjust it.<br>(default: <code>0</code>)</small>
     </div>
 
     <div class="options-block">
@@ -84,7 +93,7 @@
         <input type="number" id="emote-fuzzy-matching-distance">
       </label>
       <br>
-      <small>The distance factor used for the fuzzy matching relevance score of the emote names.<br>See <a href="https://www.fusejs.io/api/options.html#fuzzy-matching-options" target="_blank" rel="noopener">here</a> and <a href="https://www.fusejs.io/concepts/scoring-theory.html" target="_blank" rel="noopener">here</a> to learn how to adjust it (default: <code>100</code>).</small>
+      <small>The distance factor used for the fuzzy matching relevance score of the emote names.<br>See <a href="https://www.fusejs.io/api/options.html#fuzzy-matching-options" target="_blank" rel="noopener">here</a> and <a href="https://www.fusejs.io/concepts/scoring-theory.html" target="_blank" rel="noopener">here</a> to learn how to adjust it.<br>(default: <code>100</code>)</small>
     </div>
 
     <div class="options-block">
@@ -93,7 +102,7 @@
         <input type="number" id="emote-fuzzy-matching-threshold" min="0" max="1" step="0.1" value="0.6">
       </label>
       <br>
-      <small>The threshold factor used for the fuzzy matching relevance score of the emote names.<br>See <a href="https://www.fusejs.io/api/options.html#fuzzy-matching-options" target="_blank" rel="noopener">here</a> and <a href="https://www.fusejs.io/concepts/scoring-theory.html" target="_blank" rel="noopener">here</a> to learn how to adjust it (default: <code>0.6</code>).</small>
+      <small>The threshold factor used for the fuzzy matching relevance score of the emote names.<br>See <a href="https://www.fusejs.io/api/options.html#fuzzy-matching-options" target="_blank" rel="noopener">here</a> and <a href="https://www.fusejs.io/concepts/scoring-theory.html" target="_blank" rel="noopener">here</a> to learn how to adjust it.<br>(default: <code>0.6</code>)</small>
     </div>
 
     <div class="options-block">

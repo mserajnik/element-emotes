@@ -10,6 +10,8 @@ and this project adheres to
 
 ### Added
 
++ Fuzzy matching for emote suggestions is now optional; when disabled, simple
+  case-insensitive string matching will be used instead
 + Some fuzzy matching relevance score options are now exposed to be able to
   fine-tune them when necessary
 

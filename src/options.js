@@ -23,6 +23,7 @@ const saveOptions = () => {
   const largeEmoteSize = document.getElementById('large-emote-size').value
   const useFrozenEmotes = document.getElementById('use-frozen-emotes').checked
   const emoteSuggestionAmount = document.getElementById('emote-suggestion-amount').value
+  const useEmoteFuzzyMatching = document.getElementById('use-emote-fuzzy-matching').checked
   const emoteFuzzyMatchingLocation = document.getElementById('emote-fuzzy-matching-location').value
   const emoteFuzzyMatchingDistance = document.getElementById('emote-fuzzy-matching-distance').value
   const emoteFuzzyMatchingThreshold = document.getElementById('emote-fuzzy-matching-threshold').value
@@ -35,6 +36,7 @@ const saveOptions = () => {
     largeEmoteSize,
     useFrozenEmotes,
     emoteSuggestionAmount,
+    useEmoteFuzzyMatching,
     emoteFuzzyMatchingLocation,
     emoteFuzzyMatchingDistance,
     emoteFuzzyMatchingThreshold
@@ -57,6 +59,7 @@ const restoreOptions = () => {
     largeEmoteSize: '4em',
     useFrozenEmotes: false,
     emoteSuggestionAmount: 10,
+    useEmoteFuzzyMatching: true,
     emoteFuzzyMatchingLocation: 0,
     emoteFuzzyMatchingDistance: 100,
     emoteFuzzyMatchingThreshold: 0.6
@@ -67,6 +70,7 @@ const restoreOptions = () => {
     document.getElementById('large-emote-size').value = items.largeEmoteSize
     document.getElementById('use-frozen-emotes').checked = items.useFrozenEmotes
     document.getElementById('emote-suggestion-amount').value = items.emoteSuggestionAmount
+    document.getElementById('use-emote-fuzzy-matching').checked = items.useEmoteFuzzyMatching
     document.getElementById('emote-fuzzy-matching-location').value = items.emoteFuzzyMatchingLocation
     document.getElementById('emote-fuzzy-matching-distance').value = items.emoteFuzzyMatchingDistance
     document.getElementById('emote-fuzzy-matching-threshold').value = items.emoteFuzzyMatchingThreshold
