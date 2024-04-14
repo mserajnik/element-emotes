@@ -14,6 +14,9 @@ and this project adheres to
   case-insensitive string matching will be used instead
 + Some fuzzy matching relevance score options are now exposed to be able to
   fine-tune them when necessary
++ Added an option to define blacklisted (partial) emote names that will then
+  cause those emotes to be excluded from the suggestions (but they will still
+  be rendered in the chat messages)
 
 ### Fixed
 

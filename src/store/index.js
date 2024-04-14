@@ -36,6 +36,7 @@ const state = {
   emoteFuzzyMatchingLocation: 0,
   emoteFuzzyMatchingDistance: 100,
   emoteFuzzyMatchingThreshold: 0.6,
+  emoteSuggestionBlacklistedStrings: '',
   emotes: []
 }
 

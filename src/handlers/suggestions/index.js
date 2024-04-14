@@ -23,7 +23,7 @@ import store from '../../store'
 const { Textcomplete } = require('@textcomplete/core')
 const { ContenteditableEditor } = require('@textcomplete/contenteditable')
 
-let fuse, textcompleteOptions
+let fuse, emotes, textcompleteOptions
 
 const gatherCandidates = term => {
   let cleanedTerm = term.split(':').join('')
@@ -37,7 +37,6 @@ const gatherCandidates = term => {
   // based on casing when using the fuzzy matching instead
   cleanedTerm = cleanedTerm.toLowerCase()
 
-  const emotes = store.get('emotes')
   const candidates = []
 
   for (const emote of emotes) {
@@ -128,9 +127,27 @@ const handlePotentialMessageInputNode = node => {
 
 export default {
   initialize: () => {
+    const blacklistedStrings = store.get('emoteSuggestionBlacklistedStrings')
+      .split('|')
+      .map(blacklistedString => blacklistedString.trim().toLowerCase())
+      .filter(blacklistedString => blacklistedString !== '')
+
+    emotes = store.get('emotes')
+      .filter(emote => {
+        const lowerCaseEmoteName = emote.name.toLowerCase()
+
+        for (const blacklistedString of blacklistedStrings) {
+          if (lowerCaseEmoteName.includes(blacklistedString)) {
+            return false
+          }
+        }
+
+        return true
+      })
+
     if (store.get('useEmoteFuzzyMatching')) {
       fuse = new Fuse(
-        store.get('emotes'),
+        emotes,
         {
           keys: ['name'],
           location: store.get('emoteFuzzyMatchingLocation'),

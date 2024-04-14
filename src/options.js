@@ -27,6 +27,7 @@ const saveOptions = () => {
   const emoteFuzzyMatchingLocation = document.getElementById('emote-fuzzy-matching-location').value
   const emoteFuzzyMatchingDistance = document.getElementById('emote-fuzzy-matching-distance').value
   const emoteFuzzyMatchingThreshold = document.getElementById('emote-fuzzy-matching-threshold').value
+  const emoteSuggestionBlacklistedStrings = document.getElementById('emote-suggestion-blacklisted-strings').value
 
   // eslint-disable-next-line no-undef
   chrome.storage.sync.set({
@@ -39,7 +40,8 @@ const saveOptions = () => {
     useEmoteFuzzyMatching,
     emoteFuzzyMatchingLocation,
     emoteFuzzyMatchingDistance,
-    emoteFuzzyMatchingThreshold
+    emoteFuzzyMatchingThreshold,
+    emoteSuggestionBlacklistedStrings
   }, () => {
     const status = document.getElementById('status')
     status.textContent = 'Options saved.'
@@ -62,7 +64,8 @@ const restoreOptions = () => {
     useEmoteFuzzyMatching: true,
     emoteFuzzyMatchingLocation: 0,
     emoteFuzzyMatchingDistance: 100,
-    emoteFuzzyMatchingThreshold: 0.6
+    emoteFuzzyMatchingThreshold: 0.6,
+    emoteSuggestionBlacklistedStrings: ''
   }, items => {
     document.getElementById('emotes-url').value = items.emotesUrl
     document.getElementById('access-key').value = items.accessKey
@@ -74,6 +77,7 @@ const restoreOptions = () => {
     document.getElementById('emote-fuzzy-matching-location').value = items.emoteFuzzyMatchingLocation
     document.getElementById('emote-fuzzy-matching-distance').value = items.emoteFuzzyMatchingDistance
     document.getElementById('emote-fuzzy-matching-threshold').value = items.emoteFuzzyMatchingThreshold
+    document.getElementById('emote-suggestion-blacklisted-strings').value = items.emoteSuggestionBlacklistedStrings
   })
 }
 
