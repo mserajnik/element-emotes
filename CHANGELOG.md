@@ -15,6 +15,11 @@ and this project adheres to
 + Some fuzzy matching relevance score options are now exposed to be able to
   fine-tune them when necessary
 
+### Fixed
+
++ The default for any option is now loaded correctly even when that option
+  hasn't been saved before
+
 ## [1.3.1] - 2024-04-09
 
 ### Fixed
