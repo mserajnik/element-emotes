@@ -23,10 +23,20 @@ let isInitialized = false
 const state = {
   emotesUrl: null,
   accessKey: null,
-  defaultEmoteSize: null,
-  largeEmoteSize: null,
-  useFrozenEmotes: null,
-  emoteSuggestionAmount: null,
+  // These defaults must match the defaults in options.js; they are not defined
+  // in a separate file and then just imported in options.js and here because
+  // that would result in a dynamic import (which we don't want for options.js)
+  // and Vite.js/Rollup doesn't allow us to inline dynamic imports when there
+  // are multiple inputs.
+  defaultEmoteSize: '2em',
+  largeEmoteSize: '4em',
+  useFrozenEmotes: false,
+  emoteSuggestionAmount: 10,
+  useEmoteFuzzyMatching: true,
+  emoteFuzzyMatchingLocation: 0,
+  emoteFuzzyMatchingDistance: 100,
+  emoteFuzzyMatchingThreshold: 0.6,
+  emoteSuggestionBlacklistedStrings: '',
   emotes: []
 }
 

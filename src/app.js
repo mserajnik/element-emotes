@@ -20,7 +20,7 @@ import store from './store'
 import replacementsHandler from './handlers/replacements'
 import suggestionsHandler from './handlers/suggestions'
 
-import './style.css'
+import './app.css'
 
 ;(async () => {
   try {

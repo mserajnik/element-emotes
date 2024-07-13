@@ -8,6 +8,23 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [1.4.0] - 2024-07-13
+
+### Added
+
++ Fuzzy matching for emote suggestions is now optional; when disabled, simple
+  case-insensitive string matching will be used instead
++ Some fuzzy matching relevance score options are now exposed to be able to
+  fine-tune them when necessary
++ Added an option to define blacklisted (partial) emote names that will then
+  cause those emotes to be excluded from the suggestions (but they will still
+  be rendered in the chat messages)
+
+### Fixed
+
++ The default for any option is now loaded correctly even when that option
+  hasn't been saved before
+
 ## [1.3.1] - 2024-04-09
 
 ### Fixed
@@ -50,7 +67,8 @@ and this project adheres to
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.3.1...develop
+[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.4.0...develop
+[1.4.0]: https://github.com/mserajnik/element-emotes/compare/1.3.1...1.4.0
 [1.3.1]: https://github.com/mserajnik/element-emotes/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/mserajnik/element-emotes/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/mserajnik/element-emotes/compare/1.1.0...1.2.0
