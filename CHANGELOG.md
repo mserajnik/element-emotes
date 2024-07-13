@@ -8,6 +8,8 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [1.4.0] - 2024-07-13
+
 ### Added
 
 + Fuzzy matching for emote suggestions is now optional; when disabled, simple
@@ -65,7 +67,8 @@ and this project adheres to
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.3.1...develop
+[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.4.0...develop
+[1.4.0]: https://github.com/mserajnik/element-emotes/compare/1.3.1...1.4.0
 [1.3.1]: https://github.com/mserajnik/element-emotes/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/mserajnik/element-emotes/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/mserajnik/element-emotes/compare/1.1.0...1.2.0
