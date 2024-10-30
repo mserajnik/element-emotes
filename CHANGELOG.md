@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Security
+
++ Maintenance release that updates dependencies to fix vulnerabilities
+
 ## [1.4.0] - 2024-07-13
 
 ### Added

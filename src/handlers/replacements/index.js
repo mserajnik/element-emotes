@@ -135,7 +135,7 @@ export default {
     accessKey = store.get('accessKey')
     useFrozenEmotes = store.get('useFrozenEmotes')
 
-    new MutationObserver(mutations => {
+    new window.MutationObserver(mutations => {
       for (const mutation of mutations) {
         for (const node of mutation.addedNodes) {
           handlePotentialMessageNode(node)

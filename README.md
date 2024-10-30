@@ -102,7 +102,7 @@ The production assets in [`dist`](dist) are not excluded from Git to make
 installing this extension easier for less tech-savvy people.
 
 To make your own builds, you need to install [Node.js][node-js] (tested with
-`>=20.0.0 <23.0.0`).
+`>=22.0.0 <24.0.0`).
 
 ### Installing dependencies
 
