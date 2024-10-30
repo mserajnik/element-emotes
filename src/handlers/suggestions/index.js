@@ -82,7 +82,7 @@ const handleEmoteSuggestions = async (messageInputNode, requiresManualDeletions 
     textcompleteOptions
   )
 
-  new MutationObserver((mutations, observer) => {
+  new window.MutationObserver((mutations, observer) => {
     // Destroy the textcomplete if the message input is removed/disappears so
     // we don't end up with orphaned completion suggestions
     if (!document.body.contains(messageInputNode)) {
@@ -96,7 +96,7 @@ const handleEmoteSuggestions = async (messageInputNode, requiresManualDeletions 
 }
 
 const handlePotentialMessageInputNode = node => {
-  if (node.nodeType !== Node.ELEMENT_NODE) {
+  if (node.nodeType !== window.Node.ELEMENT_NODE) {
     return
   }
 
@@ -174,7 +174,7 @@ export default {
       }
     }
 
-    new MutationObserver(mutations => {
+    new window.MutationObserver(mutations => {
       for (const mutation of mutations) {
         for (const node of mutation.addedNodes) {
           handlePotentialMessageInputNode(node)

@@ -26,7 +26,7 @@ import './app.css'
   try {
     await store.initialize()
   } catch (err) {
-    alert(err)
+    window.alert(err)
     return
   }
 
