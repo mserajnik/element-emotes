@@ -8,6 +8,8 @@ and this project adheres to
 
 ## [Unreleased]
 
++ Added an option to override Element's default username colors
+
 ## [1.5.0] - 2024-10-30
 
 ### Security
