@@ -19,6 +19,7 @@
 import store from './store'
 import replacementsHandler from './handlers/replacements'
 import suggestionsHandler from './handlers/suggestions'
+import usernameColorsHandler from './handlers/username-colors'
 
 import './app.css'
 
@@ -32,4 +33,5 @@ import './app.css'
 
   replacementsHandler.initialize()
   suggestionsHandler.initialize()
+  usernameColorsHandler.initialize()
 })()

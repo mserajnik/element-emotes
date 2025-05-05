@@ -17,17 +17,22 @@
  */
 
 const saveOptions = () => {
-  const emotesUrl = document.getElementById('emotes-url').value
-  const accessKey = document.getElementById('access-key').value
-  const defaultEmoteSize = document.getElementById('default-emote-size').value
-  const largeEmoteSize = document.getElementById('large-emote-size').value
+  const emotesUrl = document.getElementById('emotes-url').value.trim()
+  const accessKey = document.getElementById('access-key').value.trim()
+  const defaultEmoteSize = document.getElementById('default-emote-size').value.trim()
+  const largeEmoteSize = document.getElementById('large-emote-size').value.trim()
   const useFrozenEmotes = document.getElementById('use-frozen-emotes').checked
-  const emoteSuggestionAmount = document.getElementById('emote-suggestion-amount').value
+  const emoteSuggestionAmount = document.getElementById('emote-suggestion-amount').value.trim()
   const useEmoteFuzzyMatching = document.getElementById('use-emote-fuzzy-matching').checked
-  const emoteFuzzyMatchingLocation = document.getElementById('emote-fuzzy-matching-location').value
-  const emoteFuzzyMatchingDistance = document.getElementById('emote-fuzzy-matching-distance').value
-  const emoteFuzzyMatchingThreshold = document.getElementById('emote-fuzzy-matching-threshold').value
-  const emoteSuggestionBlacklistedStrings = document.getElementById('emote-suggestion-blacklisted-strings').value
+  const emoteFuzzyMatchingLocation = document.getElementById('emote-fuzzy-matching-location').value.trim()
+  const emoteFuzzyMatchingDistance = document.getElementById('emote-fuzzy-matching-distance').value.trim()
+  const emoteFuzzyMatchingThreshold = document.getElementById('emote-fuzzy-matching-threshold').value.trim()
+  const emoteSuggestionBlacklistedStrings = document.getElementById('emote-suggestion-blacklisted-strings').value.trim()
+
+  const usernameColors = []
+  for (let i = 1; i <= 8; i++) {
+    usernameColors.push(document.getElementById(`username-color-${i}`).value.trim())
+  }
 
   // eslint-disable-next-line no-undef
   chrome.storage.sync.set({
@@ -41,7 +46,8 @@ const saveOptions = () => {
     emoteFuzzyMatchingLocation,
     emoteFuzzyMatchingDistance,
     emoteFuzzyMatchingThreshold,
-    emoteSuggestionBlacklistedStrings
+    emoteSuggestionBlacklistedStrings,
+    usernameColors
   }, () => {
     const status = document.getElementById('status')
     status.textContent = 'Options saved.'
@@ -65,7 +71,8 @@ const restoreOptions = () => {
     emoteFuzzyMatchingLocation: 0,
     emoteFuzzyMatchingDistance: 100,
     emoteFuzzyMatchingThreshold: 0.6,
-    emoteSuggestionBlacklistedStrings: ''
+    emoteSuggestionBlacklistedStrings: '',
+    usernameColors: ['', '', '', '', '', '', '', ''],
   }, items => {
     document.getElementById('emotes-url').value = items.emotesUrl
     document.getElementById('access-key').value = items.accessKey
@@ -78,6 +85,9 @@ const restoreOptions = () => {
     document.getElementById('emote-fuzzy-matching-distance').value = items.emoteFuzzyMatchingDistance
     document.getElementById('emote-fuzzy-matching-threshold').value = items.emoteFuzzyMatchingThreshold
     document.getElementById('emote-suggestion-blacklisted-strings').value = items.emoteSuggestionBlacklistedStrings
+    for (let i = 1; i <= 8; i++) {
+      document.getElementById(`username-color-${i}`).value = items.usernameColors[i - 1]
+    }
   })
 }
 
