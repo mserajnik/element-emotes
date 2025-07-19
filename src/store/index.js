@@ -61,6 +61,10 @@ export default {
 
         isInitialized = true
 
+        if (!state.emotesUrl) {
+          return resolve()
+        }
+
         try {
           state.emotes = await api.fetchEmotes()
         } catch {

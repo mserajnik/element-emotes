@@ -8,6 +8,12 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Fixed
+
++ The extension no longer tries to load emotes when the emotes URL is not set
+  (e.g., when the user has not configured it yet), preventing the error message
+  that was previously shown
+
 ## [1.6.0] - 2025-05-05
 
 ### Added
