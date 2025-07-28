@@ -8,6 +8,12 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Added
+
++ Added a status indicator in the form of a random emote that is displayed at
+  the bottom of the "space panel" on the left side of Element, indicating when
+  the extension has loaded successfully
+
 ### Fixed
 
 + The extension no longer tries to load emotes when the emotes URL is not set

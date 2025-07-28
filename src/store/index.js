@@ -38,6 +38,7 @@ const state = {
   emoteFuzzyMatchingThreshold: 0.6,
   emoteSuggestionBlacklistedStrings: '',
   usernameColors: ['', '', '', '', '', '', '', ''],
+  displayStatusIndicator: true,
   emotes: [],
 }
 

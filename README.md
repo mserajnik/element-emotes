@@ -83,6 +83,7 @@ options are available:
 | Emote Fuzzy Matching Threshold       | The threshold factor used for the fuzzy matching relevance score of the emote names. See [here][fuzzy-matching-options] and [here][fuzzy-matching-scoring-theory] to learn how to adjust it.  | `0.6`                  |
 | Blacklisted Emote Suggestion Strings | If an emote name contains a string from this list (use `\|` to separate the strings) it will be excluded from the emote suggestions.                                                          |                        |
 | Username Colors                      | The eight available username colors. If the same value as the Element default is set for a specific color (or no value is entered at all), no CSS will be generated for the respective color. | see input placeholders |
+| Display Status Indicator             | If enabled, a random emote is displayed at the bottom of the "space panel" on the left side of Element, indicating when the extension has loaded successfully.                                | `true`                 |
 
 ### Usage in Element
 
