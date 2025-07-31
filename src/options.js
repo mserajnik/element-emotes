@@ -28,6 +28,7 @@ const saveOptions = () => {
   const emoteFuzzyMatchingDistance = document.getElementById('emote-fuzzy-matching-distance').value.trim()
   const emoteFuzzyMatchingThreshold = document.getElementById('emote-fuzzy-matching-threshold').value.trim()
   const emoteSuggestionBlacklistedStrings = document.getElementById('emote-suggestion-blacklisted-strings').value.trim()
+  const displayStatusIndicator = document.getElementById('display-status-indicator').checked
 
   const usernameColors = []
   for (let i = 1; i <= 8; i++) {
@@ -47,7 +48,8 @@ const saveOptions = () => {
     emoteFuzzyMatchingDistance,
     emoteFuzzyMatchingThreshold,
     emoteSuggestionBlacklistedStrings,
-    usernameColors
+    usernameColors,
+    displayStatusIndicator,
   }, () => {
     const status = document.getElementById('status')
     status.textContent = 'Options saved.'
@@ -73,6 +75,7 @@ const restoreOptions = () => {
     emoteFuzzyMatchingThreshold: 0.6,
     emoteSuggestionBlacklistedStrings: '',
     usernameColors: ['', '', '', '', '', '', '', ''],
+    displayStatusIndicator: true,
   }, items => {
     document.getElementById('emotes-url').value = items.emotesUrl
     document.getElementById('access-key').value = items.accessKey
@@ -85,6 +88,7 @@ const restoreOptions = () => {
     document.getElementById('emote-fuzzy-matching-distance').value = items.emoteFuzzyMatchingDistance
     document.getElementById('emote-fuzzy-matching-threshold').value = items.emoteFuzzyMatchingThreshold
     document.getElementById('emote-suggestion-blacklisted-strings').value = items.emoteSuggestionBlacklistedStrings
+    document.getElementById('display-status-indicator').checked = items.displayStatusIndicator
     for (let i = 1; i <= 8; i++) {
       document.getElementById(`username-color-${i}`).value = items.usernameColors[i - 1]
     }

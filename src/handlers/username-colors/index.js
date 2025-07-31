@@ -29,11 +29,11 @@ const elementDefaultUsernameColors = [
   'var(--cpd-color-lime-1200)',
 ]
 
-const adjustedUsernameColors = []
-
 export default {
   initialize: () => {
     const usernameColors = store.get('usernameColors')
+
+    const adjustedUsernameColors = []
 
     for (let i = 0; i < 8; i++) {
       if (

@@ -147,7 +147,7 @@ export default {
     })
 
     if (useFrozenEmotes) {
-      // The windows needs to be focused at least once for the `focus` and
+      // The window needs to be focused at least once for the `focus` and
       // `blur` events to work
       window.focus()
 

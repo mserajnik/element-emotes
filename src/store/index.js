@@ -38,6 +38,7 @@ const state = {
   emoteFuzzyMatchingThreshold: 0.6,
   emoteSuggestionBlacklistedStrings: '',
   usernameColors: ['', '', '', '', '', '', '', ''],
+  displayStatusIndicator: true,
   emotes: [],
 }
 
@@ -60,6 +61,10 @@ export default {
         }
 
         isInitialized = true
+
+        if (!state.emotesUrl) {
+          return resolve()
+        }
 
         try {
           state.emotes = await api.fetchEmotes()

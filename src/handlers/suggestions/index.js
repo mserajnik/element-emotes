@@ -23,6 +23,17 @@ import store from '../../store'
 const { Textcomplete } = require('@textcomplete/core')
 const { ContenteditableEditor } = require('@textcomplete/contenteditable')
 
+const messageInputNodes = [
+  {
+    class: 'mx_BasicMessageComposer_input',
+    requiresManualDeletions: false
+  },
+  {
+    class: 'mx_WysiwygComposer_Editor_content',
+    requiresManualDeletions: true
+  },
+]
+
 let fuse, emotes, textcompleteOptions
 
 const gatherCandidates = term => {
@@ -99,17 +110,6 @@ const handlePotentialMessageInputNode = node => {
   if (node.nodeType !== window.Node.ELEMENT_NODE) {
     return
   }
-
-  const messageInputNodes = [
-    {
-      class: 'mx_BasicMessageComposer_input',
-      requiresManualDeletions: false
-    },
-    {
-      class: 'mx_WysiwygComposer_Editor_content',
-      requiresManualDeletions: true
-    }
-  ]
 
   if (node.classList) {
     for (const messageInputNode of messageInputNodes) {
