@@ -12,7 +12,8 @@ and this project adheres to
 
 + Added a status indicator in the form of a random emote that is displayed at
   the bottom of the "space panel" on the left side of Element, indicating when
-  the extension has loaded successfully
+  the extension has loaded successfully. The status indicator can also be
+  clicked to change the emote to another random one
 
 ### Fixed
 

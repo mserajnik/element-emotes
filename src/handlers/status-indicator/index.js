@@ -20,26 +20,14 @@ import store from '../../store'
 
 const anchorNodeClass = 'mx_QuickSettingsButton'
 
-const insertStatusIndicator = (node, emote) => {
-  const style = `
-    background-image: url('${emote.url}?accessKey=${store.get('accessKey')}');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    flex: 0 0 auto;
-    margin: 12px auto;
-    min-height: 32px;
-    min-width: 32px;
-  `
+let emotes
 
-  node.insertAdjacentHTML(
-    'afterend',
-    `<div
-      style="${style}"
-      tabindex="0"
-      title="${emote.name}"
-    </div>`
-  )
+const getRandomEmote = () => {
+  if (!emotes.length) {
+    return null
+  }
+
+  return emotes[Math.floor(Math.random() * emotes.length)]
 }
 
 const handlePotentialAnchorNode = (node, emote, observer) => {
@@ -56,6 +44,42 @@ const handlePotentialAnchorNode = (node, emote, observer) => {
   }
 }
 
+const insertStatusIndicator = (node, emote) => {
+  const style = `
+    background-image: url('${emote.url}?accessKey=${store.get('accessKey')}');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    flex: 0 0 auto;
+    margin: 12px auto;
+    min-height: 32px;
+    min-width: 32px;
+  `
+
+  node.insertAdjacentHTML(
+    'afterend',
+    `<div
+      id="element-emotes-status-indicator"
+      style="${style}"
+      tabindex="0"
+      title="${emote.name}"
+    </div>`
+  )
+
+  const statusIndicatorNode = document.getElementById(
+    'element-emotes-status-indicator'
+  )
+  statusIndicatorNode.addEventListener('click', () => {
+    setRandomEmoteForStatusIndicator(statusIndicatorNode, getRandomEmote())
+  })
+}
+
+const setRandomEmoteForStatusIndicator = (node, emote) => {
+  node.style.backgroundImage = `url('${emote.url}?accessKey=${store.get('accessKey')}')`
+  node.title = emote.name
+}
+
 export default {
   initialize: () => {
     if (!store.get('displayStatusIndicator')) {
@@ -67,7 +91,7 @@ export default {
       .map(blacklistedString => blacklistedString.trim().toLowerCase())
       .filter(blacklistedString => blacklistedString !== '')
 
-    const emotes = store.get('emotes')
+    emotes = store.get('emotes')
       .filter(emote => {
         const lowerCaseEmoteName = emote.name.toLowerCase()
 
@@ -80,7 +104,7 @@ export default {
         return true
       })
 
-    const randomEmote = emotes[Math.floor(Math.random() * emotes.length)]
+    const randomEmote = getRandomEmote()
 
     if (!randomEmote) {
       return
@@ -89,7 +113,6 @@ export default {
     const existingAnchorNode = document.querySelector(
       `.${anchorNodeClass}`
     )
-
     if (existingAnchorNode) {
       insertStatusIndicator(existingAnchorNode, randomEmote)
       return
