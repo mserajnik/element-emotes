@@ -8,6 +8,8 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [1.7.0] - 2025-07-31
+
 ### Added
 
 + Added a status indicator in the form of a random emote that is displayed at
@@ -92,7 +94,8 @@ and this project adheres to
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.6.0...develop
+[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.7.0...develop
+[1.7.0]: https://github.com/mserajnik/element-emotes/compare/1.6.0...1.7.0
 [1.6.0]: https://github.com/mserajnik/element-emotes/compare/1.5.0...1.6.0
 [1.5.0]: https://github.com/mserajnik/element-emotes/compare/1.4.0...1.5.0
 [1.4.0]: https://github.com/mserajnik/element-emotes/compare/1.3.1...1.4.0
