@@ -8,6 +8,14 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [1.8.0] - 2025-10-29
+
+### Security
+
++ Maintenance release that introduces [Bun][bun] to replace both
+  [Node.js][node-js] and [Vite][vite] for a much simpler development and build
+  process
+
 ## [1.7.0] - 2025-07-31
 
 ### Added
@@ -94,7 +102,8 @@ and this project adheres to
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.7.0...develop
+[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.8.0...develop
+[1.8.0]: https://github.com/mserajnik/element-emotes/compare/1.7.0...1.8.0
 [1.7.0]: https://github.com/mserajnik/element-emotes/compare/1.6.0...1.7.0
 [1.6.0]: https://github.com/mserajnik/element-emotes/compare/1.5.0...1.6.0
 [1.5.0]: https://github.com/mserajnik/element-emotes/compare/1.4.0...1.5.0
@@ -104,5 +113,7 @@ and this project adheres to
 [1.2.0]: https://github.com/mserajnik/element-emotes/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/mserajnik/element-emotes/compare/1.0.0...1.1.0
 
+[bun]: https://bun.sh/
 [laravel-mix]: https://github.com/laravel-mix/laravel-mix
+[node-js]: https://nodejs.org/
 [vite]: https://vitejs.dev/

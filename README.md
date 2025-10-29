@@ -103,13 +103,12 @@ You can find the source code of the extension in [`src`](src).
 The production assets in [`dist`](dist) are not excluded from Git to make
 installing this extension easier for less tech-savvy people.
 
-To make your own builds, you need to install [Node.js][node-js] (tested with
-`>=22.0.0 <25.0.0`).
+To make your own builds, you need to install [Bun][bun].
 
 ### Installing dependencies
 
 ```zsh
-user@local:element-emotes$ npm i
+user@local:element-emotes$ bun install
 ```
 
 ### Building
@@ -118,13 +117,13 @@ To continuously watch for changes and automatically rebuild (useful for
 development):
 
 ```zsh
-user@local:element-emotes$ npm run watch
+user@local:element-emotes$ bun run watch
 ```
 
 Or, to make a production build:
 
 ```zsh
-user@local:element-emotes$ npm run build
+user@local:element-emotes$ bun run build
 ```
 
 ## Maintainer
@@ -141,6 +140,7 @@ You are welcome to help out!
 
 [AGPLv3](LICENSE) © Michael Serajnik
 
+[bun]: https://bun.sh/
 [element]: https://element.io/
 [emote-server-api]: https://github.com/mserajnik/emote-server#api
 [emotes-path]: https://github.com/mserajnik/emote-server#listing-emotes
@@ -150,6 +150,5 @@ You are welcome to help out!
 [load-an-unpacked-extension]: https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked
 [maintainer]: https://github.com/mserajnik
 [manifest-v3]: https://developer.chrome.com/docs/extensions/mv3/intro/
-[node-js]: https://nodejs.org/
 [pull-requests]: https://github.com/mserajnik/element-emotes/pulls
 [semantic-versioning]: https://semver.org/

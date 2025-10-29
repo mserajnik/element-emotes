@@ -14,4 +14,4 @@
  *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */.textcomplete-dropdown{list-style:none;margin:0;max-height:300px;overflow-y:scroll!important;padding:0;width:auto!important}.textcomplete-item{align-items:flex-end!important;cursor:pointer!important;display:flex!important;padding:.2rem .8rem!important}.textcomplete-item span{margin-right:0!important}.textcomplete-item img{height:auto;width:2em}
+ */.textcomplete-dropdown{list-style:none;max-height:300px;margin:0;padding:0;overflow-y:scroll!important;width:auto!important}.textcomplete-item{cursor:pointer!important;display:flex!important;align-items: flex-end!important;padding:.2rem .8rem!important}.textcomplete-item span{margin-right:0!important}.textcomplete-item img{width:2em;height:auto}
