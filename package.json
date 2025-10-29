@@ -16,11 +16,8 @@
   "scripts": {
     "postinstall": "patch-package",
     "test": "eslint .",
-    "watch": "vite build --watch src",
-    "build": "vite build src"
-  },
-  "engines": {
-    "node": ">=22.0.0 <25.0.0"
+    "watch": "bun build ./src/app.js ./src/options.js --outdir ./dist --watch",
+    "build": "bun build ./src/app.js ./src/options.js --outdir ./dist --minify"
   },
   "dependencies": {
     "@textcomplete/contenteditable": "^0.1.13",
@@ -29,10 +26,8 @@
     "fuse.js": "^7.1.0"
   },
   "devDependencies": {
-    "eslint": "^9.32.0",
+    "eslint": "^9.38.0",
     "neostandard": "^0.12.2",
-    "patch-package": "^8.0.0",
-    "vite": "^7.0.6",
-    "vite-plugin-commonjs": "^0.10.4"
+    "patch-package": "^8.0.1"
   }
 }
