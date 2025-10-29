@@ -8,6 +8,8 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [1.8.0] - 2025-10-29
+
 ### Security
 
 + Maintenance release that introduces [Bun][bun] to replace both
@@ -100,7 +102,8 @@ and this project adheres to
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.7.0...develop
+[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.8.0...develop
+[1.8.0]: https://github.com/mserajnik/element-emotes/compare/1.7.0...1.8.0
 [1.7.0]: https://github.com/mserajnik/element-emotes/compare/1.6.0...1.7.0
 [1.6.0]: https://github.com/mserajnik/element-emotes/compare/1.5.0...1.6.0
 [1.5.0]: https://github.com/mserajnik/element-emotes/compare/1.4.0...1.5.0
