@@ -22,11 +22,11 @@
   "dependencies": {
     "@textcomplete/contenteditable": "^0.1.13",
     "@textcomplete/core": "^0.1.13",
-    "emojibase-regex": "^16.0.0",
+    "emojibase-regex": "^17.0.0",
     "fuse.js": "^7.1.0"
   },
   "devDependencies": {
-    "eslint": "^9.38.0",
+    "eslint": "^9.39.2",
     "neostandard": "^0.12.2",
     "patch-package": "^8.0.1"
   }
