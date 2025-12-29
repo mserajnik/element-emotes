@@ -8,6 +8,12 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [1.9.0] - 2025-12-29
+
+### Security
+
++ Maintenance release that updates dependencies to fix vulnerabilities
+
 ## [1.8.0] - 2025-10-29
 
 ### Security
@@ -102,7 +108,8 @@ and this project adheres to
 
 + Initial release
 
-[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.8.0...develop
+[Unreleased]: https://github.com/mserajnik/element-emotes/compare/1.9.0...develop
+[1.9.0]: https://github.com/mserajnik/element-emotes/compare/1.8.0...1.9.0
 [1.8.0]: https://github.com/mserajnik/element-emotes/compare/1.7.0...1.8.0
 [1.7.0]: https://github.com/mserajnik/element-emotes/compare/1.6.0...1.7.0
 [1.6.0]: https://github.com/mserajnik/element-emotes/compare/1.5.0...1.6.0
