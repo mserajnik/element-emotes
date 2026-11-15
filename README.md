@@ -1,3 +1,19 @@
+> [!IMPORTANT]
+> This repository was originally archived on 2025-12-29 because I switched from
+> Element to [Cinny][cinny], which supports custom emotes natively. I no longer
+> need the extension and do not want to keep maintaining it. While the code may
+> still be perfectly functional, I prefer archiving such repositories over
+> leaving it unclear whether they are still maintained. On 2026-11-15, I
+> briefly unarchived the repository to add this note and then archived it
+> again.
+>
+> I deleted the prebuilt extension in the `dist` directory to prevent users
+> from running outdated and possibly insecure software by accident.
+>
+> The original README follows.
+
+---
+
 # element-emotes
 
 > A browser extension for custom emote support in Element
@@ -141,6 +157,7 @@ You are welcome to help out!
 [AGPLv3](LICENSE) © Michael Serajnik
 
 [bun]: https://bun.sh/
+[cinny]: https://github.com/cinnyapp/cinny
 [element]: https://element.io/
 [emote-server-api]: https://github.com/mserajnik/emote-server#api
 [emotes-path]: https://github.com/mserajnik/emote-server#listing-emotes
